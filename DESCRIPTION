@@ -1,11 +1,10 @@
 Package: higgiesmalls
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Useful Functions for Analysing Higgs Boson Data
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Cecina Babich Morrow, Daniella Montgomery, Kieran Morris
+Maintainer: Cecina Babich Morrow <babichmorrowc@gmail.com>
+Description: Functions pertaining to the SM1 / SC1 final project analysing data from the Large Hadron Collider.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
@@ -15,3 +14,5 @@ RoxygenNote: 7.2.3
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Imports: 
+    dplyr

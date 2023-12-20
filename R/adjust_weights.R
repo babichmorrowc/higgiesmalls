@@ -22,7 +22,7 @@ adjust_weights <- function(complete_data, subset_data, unadjusted_weight_col = "
   subset_background_weights <- sum(subset_data[[unadjusted_weight_col]][subset_data[[label_col]] == "b"])
 
   adjusted_weights <- subset_data[[unadjusted_weight_col]] *
-    case_when(subset_data[[label_col]] == "s" ~ total_signal_weights / subset_signal_weights,
+    dplyr::case_when(subset_data[[label_col]] == "s" ~ total_signal_weights / subset_signal_weights,
               subset_data[[label_col]] == "b" ~ total_background_weights / subset_background_weights)
   return(adjusted_weights)
 
