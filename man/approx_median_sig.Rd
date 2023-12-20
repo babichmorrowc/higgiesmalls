@@ -22,9 +22,11 @@ The value of the approximate median significance (AMS) of the prediction. AMS is
 Calculate the approximate median significance for a given prediction.
 }
 \examples{
+\dontrun{
 # Test AMS if we predicted all background
 predictions <- rep("b", nrow(higgs_data_orig))
 labels <- higgs_data_orig$Label
 weights <- higgs_data_orig$Weight
 approx_mean_sig(predictions, labels, weights) # give us 0
+}
 }

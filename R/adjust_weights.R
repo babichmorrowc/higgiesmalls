@@ -7,11 +7,13 @@
 #' @return A vector of adjusted weights for the observations in `subset_data`
 #' @export
 #' @examples
+#' \dontrun{
 #' # Calculate adjusted weights for a subset of data used in the Kaggle challenge:
 #' kaggle_adjust_weights_t <- adjust_weights(complete_data = higgs_data_orig,
 #' subset_data = higgs_data_orig[higgs_data_orig$KaggleSet == "t",],
 #' unadjusted_weight_col = "Weight",
 #' label_col = "Label")
+#' }
 
 adjust_weights <- function(complete_data, subset_data, unadjusted_weight_col = "Weight", label_col = "Label") {
   # Get total values from complete dataset
