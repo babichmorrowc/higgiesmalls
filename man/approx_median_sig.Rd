@@ -11,7 +11,7 @@ approx_median_sig(predictions, labels, weights, b_reg = 10)
 
 \item{labels}{Vector of true labels of signal vs. background values. Should contain "s" for signal and "b" for background.}
 
-\item{weights}{Vector of weights for each observation. Note that if you are predicting for a subset of the data, you should be using `adjust_weights` to calculate the adjusted weight values.}
+\item{weights}{Vector of weights for each observation. Note that if you are predicting for a subset of the data, you should be using [adjust_weights] to calculate the adjusted weight values.}
 
 \item{b_reg}{Regularisation parameter as described here: http://opendata.cern.ch/record/329. The default value determined by CERN is 10.}
 }

@@ -1,12 +1,25 @@
 #' Perform Fisher Discriminant Analysis in the binary classification case.
 #'
-#' @param data Dataset containing a column `label_col` with values for the positive and negative classes.
-#' @param label_col Column of `data` containing the class labels (should have values of `class_pos` and `class_neg`).
-#' @param class_pos Value of `label_col` for the positive class.
-#' @param class_neg Value of `label_col` for the negative class.
+#' @param data Dataset containing a column [label_col] with values for the positive and negative classes.
+#' @param label_col Column of [data] containing the class labels (should have values of [class_pos] and [class_neg]).
+#' @param class_pos Value of [label_col] for the positive class.
+#' @param class_neg Value of [label_col] for the negative class.
 #'
 #' @return The vector result of FDA in the binary classification case.
+#' @import ggplot2
 #' @export
+#' @examples
+#' X_p <- matrix(rnorm(400) + 3, nrow = 200)
+#' X_n <- matrix(rnorm(400) - 3, nrow = 200)
+#' input_X <- rbind(X_p, X_n)
+#' input_y <- c(rep(1, nrow(X_p)), rep(-1, nrow(X_n)))
+#' input_Xy <- data.frame(cbind(input_X, input_y))
+#' w_vec <- fisher_discrim(input_Xy, label_col = "input_y", class_pos = 1, class_neg = -1)
+#' # Plot showing the direction of the vector:
+#' ggplot() +
+#' geom_point(aes(x = input_Xy[1,], y = input_Xy[2,], color = as.factor(input_Xy[3,]))) +
+#' geom_abline(intercept = 0, slope = w_vec[1] / w_vec[2]) +
+#' labs(x = "Dim 1", y = "Dim 2", color = "class")
 #'
 fisher_discrim <- function(data, label_col = "Label", class_pos, class_neg) {
   X_pos <- data %>%
@@ -30,14 +43,22 @@ fisher_discrim <- function(data, label_col = "Label", class_pos, class_neg) {
 
 #' Calculate the ratio of between class scatterness to within class scatterness. This is the ratio maximised by Fisher Discriminant Analysis.
 #'
-#' @param data Dataset containing a column `label_col` with values for the positive and negative classes.
-#' @param label_col Column of `data` containing the class labels (should have values of `class_pos` and `class_neg`).
-#' @param class_pos Value of `label_col` for the positive class.
-#' @param class_neg Value of `label_col` for the negative class.
-#' @param w Vector result of performing FDA (can be the output of a call to `fisher_discrim()`)
+#' @param data Dataset containing a column [label_col] with values for the positive and negative classes.
+#' @param label_col Column of [data] containing the class labels (should have values of [class_pos] and [class_neg]).
+#' @param class_pos Value of [label_col] for the positive class.
+#' @param class_neg Value of [label_col] for the negative class.
+#' @param w Vector result of performing FDA (can be the output of a call to [fisher_discrim()])
 #'
 #' @return A value for the ratio of between class scatterness to within class scatterness.
 #' @export
+#' @examples
+#' X_p <- matrix(rnorm(400) + 3, nrow = 200)
+#' X_n <- matrix(rnorm(400) - 3, nrow = 200)
+#' input_X <- rbind(X_p, X_n)
+#' input_y <- c(rep(1, nrow(X_p)), rep(-1, nrow(X_n)))
+#' input_Xy <- data.frame(cbind(input_X, input_y))
+#' w_vec <- fisher_discrim(input_Xy, label_col = "input_y", class_pos = 1, class_neg = -1)
+#' scatter_ratio(input_Xy, label_col = "input_y", class_pos = 1, class_neg = -1, w = w_vec)
 #'
 scatter_ratio <- function(data, label_col = "Label", class_pos, class_neg, w) {
   data_matrix <- data %>%

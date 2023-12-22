@@ -1,10 +1,10 @@
 #' Calculate adjusted weights for a subset of the data. See description at http://opendata.cern.ch/record/329.
 #'
-#' @param complete_data The complete dataframe. Must contain a weight column (see `unadjusted_weight_col`) and a label column (see `label_col`)
-#' @param subset_data The subset of `complete_data` for which you want to compute adjusted weights.
+#' @param complete_data The complete dataframe. Must contain a weight column (see [unadjusted_weight_col]) and a label column (see [label_col])
+#' @param subset_data The subset of [complete_data] for which you want to compute adjusted weights.
 #' @param unadjusted_weight_col The name of the column containing the unadjusted weight values.
 #' @param label_col The name of the column containing the label values (signal vs. background). This column must contain "s" for signal and "b" for background.
-#' @return A vector of adjusted weights for the observations in `subset_data`
+#' @return A vector of adjusted weights for the observations in [subset_data]
 #' @export
 #' @examples
 #' \dontrun{
