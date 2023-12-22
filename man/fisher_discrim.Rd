@@ -29,9 +29,9 @@ input_y <- c(rep(1, nrow(X_p)), rep(-1, nrow(X_n)))
 input_Xy <- data.frame(cbind(input_X, input_y))
 w_vec <- fisher_discrim(input_Xy, label_col = "input_y", class_pos = 1, class_neg = -1)
 # Plot showing the direction of the vector:
-ggplot() +
-geom_point(aes(x = input_Xy[1,], y = input_Xy[2,], color = as.factor(input_Xy[3,]))) +
-geom_abline(intercept = 0, slope = w_vec[1] / w_vec[2]) +
-labs(x = "Dim 1", y = "Dim 2", color = "class")
+ggplot2::ggplot() +
+ggplot2::geom_point(data = input_Xy, ggplot2::aes(x = V1, y = V2, color = as.factor(input_y))) +
+ggplot2::geom_abline(intercept = 0, slope = w_vec[1] / w_vec[2]) +
+ggplot2::labs(x = "Dim 1", y = "Dim 2", color = "class")
 
 }
