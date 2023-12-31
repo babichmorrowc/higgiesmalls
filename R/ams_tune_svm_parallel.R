@@ -121,8 +121,8 @@ ams_tune_svm_parallel <- function(METHOD, train.x, train.y = NULL, data = list()
   model.variances <- model.ams <- c()
 
   ## - loop over all models
-  sampling.ams <- foreach(para.set = 1:p, .combine = "cbind") %:%
-    foreach(sample = 1:length(train.ind), .combine = "c") %dopar% {
+  sampling.ams <- foreach::foreach(para.set = 1:p, .combine = "cbind") %:%
+    foreach::foreach(sample = 1:length(train.ind), .combine = "c") %dopar% {
       pars <- if (is.null(ranges)) {
         NULL
       } else {
