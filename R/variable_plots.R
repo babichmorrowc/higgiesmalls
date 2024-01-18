@@ -22,7 +22,7 @@ plots <- function(Parameter, data = higgs_data_na){
 #' @return A ggplot object. This shows the joint distributions of [P1] given b and s respectively.
 #' @import ggplot2
 #' @import dplyr
-#' @export
+#' @exportroxy
 #'
 plots_pairwise <- function(P1, data = higgs_data_na){
   mydiff <- function(data, diff){return(c(data, rep(NA, diff)))}
@@ -39,21 +39,4 @@ plots_pairwise <- function(P1, data = higgs_data_na){
     stat_bin_2d(bins = 70,aes(x=P1_b,y = P1_s))+
     theme_bw()
   return(pl)
-}
-
-#' Produce the product distribution of var|b and var|s
-#'
-#' @param P1 Name of the column in [data] for which the plot will be created.
-#' @param data Dataframe including column [P1].
-#'
-#' @return Prints ???
-#' @import ggplot2
-#' @import dplyr
-#' @export
-#'
-plots_product <- function(P1, data = higgs_data_na){
-  b_data <- filter(ggplot_build(plots(P1))$data[[1]],fill == "#F8766D")
-  s_data <- filter(ggplot_build(plots(P1))$data[[1]],fill != "#F8766D")
-  print(head(b_data))
-  print(head(s_data))
 }

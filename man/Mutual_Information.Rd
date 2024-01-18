@@ -2,7 +2,7 @@
 % Please edit documentation in R/Mutual_Information.R
 \name{Mutual_Information}
 \alias{Mutual_Information}
-\title{Calculate the mutual information.}
+\title{Calculate the mutual information between a variable and the label parameter, can be used to rank impact on classification.}
 \usage{
 Mutual_Information(parameter)
 }
@@ -10,8 +10,8 @@ Mutual_Information(parameter)
 \item{parameter}{Name of the column in [higgs_data_na] to calculate mutual information.}
 }
 \value{
-The mutual information of [parameter].
+The mutual information between [parameter] and [Label].
 }
 \description{
-Calculate the mutual information.
+Calculate the mutual information between a variable and the label parameter, can be used to rank impact on classification.
 }
